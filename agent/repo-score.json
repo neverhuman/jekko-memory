@@ -1,16 +1,17 @@
 {
-  "report_fingerprint": "sha256:4b747ba060085434a8f8b5c53e8f6f4a39d6025bf81cc405bc759556cfed3d70",
-  "input_fingerprint": "sha256:910a90af0be160a6f61d1f6e93dce93094bcf651863675942de89ba4d619464c",
-  "policy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "report_fingerprint": "sha256:c36e6f0d0b43e23b973c685d570a64ed218982445a324daa57ad9afdbd317651",
+  "input_fingerprint": "sha256:3a39f5a4d1889e4cd307597be8ae1e46bc6f1e75de07679ef112f795d3e2645c",
+  "policy_fingerprint": "sha256:93b49ac0ba1aa78be3f9054b8f3c2e8c12e4a9ce4fd495fa425ae92f1b1a30d9",
   "manifest_fingerprints": {
-    "owner_map": "sha256:887f91d17ace6d18f35d727e848b917d17d37e5029d24515e8daeda8cdf88d6e",
-    "test_map": "sha256:b0ab2c30fb327122e86f7d1afa5275d79f077824c0cb82fd25b87676ad34de49",
+    "owner_map": "sha256:a4d1367748de3a38ca390566eb1acb1623e6302c4ea7a017a90e3e42344f7a6e",
+    "test_map": "sha256:cfafc399780a6e31f7e19bafc5192751ff2acabc1161e93672705b97405c23d2",
     "generated_zones": "sha256:4abfb477fffea6a8188770acedaa56ead313947c05c107b74a5644345354723e",
-    "boundaries": "sha256:d7f6357507cb0691aa160b46cf89eeef35f5e855905df17721f48d44c76643fb",
+    "boundaries": "sha256:2a2cd2519c7873fb9dd1f7421225441e47f9aea1e38d1e48e8a4979bc63ea37c",
+    "proof_lanes": "sha256:93f0fb25b35cda8ac7f89b97d578749c3dcca83d92605ae9abfea1c4f6b15293",
     "standard_version": "sha256:27e5d92b64d86aacffcf8461e47e810188bca4716aaa6a2d1f74140d65ad220e"
   },
   "dirty_worktree": true,
-  "generated_at": "1781140659",
+  "generated_at": "1781215998",
   "schema_url": "schemas/repo-score.schema.json",
   "standard": "jankurai",
   "standard_version": "0.9.0",
@@ -20,29 +21,29 @@
   "target_stack_id": "rust-ts-vite-react-postgres-bounded-python",
   "target_stack": "Rust core + TypeScript/React/Vite + PostgreSQL + generated contracts + exception-only Python AI/data service",
   "claimed_conformance_level": "HL3",
-  "observed_conformance_level": "HL2",
-  "conformance_decision": "review",
+  "observed_conformance_level": "HL3",
+  "conformance_decision": "pass",
   "conformance_blockers": [],
   "repo": ".",
-  "run_id": "1781140659",
-  "started_at": "1781140659",
-  "elapsed_ms": 42,
+  "run_id": "1781215998",
+  "started_at": "1781215998",
+  "elapsed_ms": 58,
   "scope": {
     "mode": "full",
     "paths": []
   },
-  "score": 78,
-  "raw_score": 78,
+  "score": 86,
+  "raw_score": 86,
   "decision": {
     "status": "advisory",
     "minimum_score": 85,
     "passed": true,
     "hard_findings": 0,
-    "soft_findings": 5,
+    "soft_findings": 3,
     "ratchet": {
-      "baseline_score": 78,
+      "baseline_score": 86,
       "allowed_drop": 0,
-      "passed": false,
+      "passed": true,
       "score_delta": 0,
       "baseline_report_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
       "baseline_input_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
@@ -53,7 +54,7 @@
     }
   },
   "git": {
-    "head": "5082a18",
+    "head": "e623df2",
     "base": null,
     "changed_files": 0,
     "mode": "full",
@@ -277,6 +278,10 @@
         "local `AGENTS.md` file(s)",
         "reference-profile cell `domain` is canonical",
         "reference-profile cell `domain` has local AGENTS.md guidance",
+        "reference-profile cell `contracts` is canonical",
+        "reference-profile cell `contracts` has local AGENTS.md guidance",
+        "reference-profile cell `db` is canonical",
+        "reference-profile cell `db` has local AGENTS.md guidance",
         "reference-profile cell `ops` is canonical",
         "reference-profile cell `ops` has local AGENTS.md guidance",
         "root `README.md` routes to workspace layout",
@@ -288,29 +293,33 @@
     {
       "name": "Contract and boundary integrity",
       "weight": 13,
-      "score": 78,
-      "weighted_points": 10.14,
+      "score": 98,
+      "weighted_points": 12.74,
       "evidence": [
+        "contract surface found",
         "generated contract artifacts found",
         "polyglot boundary layout present",
         "boundary manifest present",
-        "Rust typed boundary helpers found"
+        "Rust typed boundary helpers found",
+        "all contract sources have generated zone entries"
       ],
       "notes": []
     },
     {
       "name": "Proof lanes and test routing",
       "weight": 12,
-      "score": 96,
-      "weighted_points": 11.52,
+      "score": 100,
+      "weighted_points": 12.0,
       "evidence": [
         "one-command setup/validation lane found",
         "deterministic fast lane found",
+        "test runner present in automation surface",
         "GitHub workflow files present",
         "test/proof routing map present",
         "jankurai audit lane found in CI",
         "web e2e lane present or no web surface",
         "rendered UX QA lane present or no web surface",
+        "DOM geometry UX QA runtime found",
         "Rust property/integration tests present or no Rust surface"
       ],
       "notes": []
@@ -349,19 +358,26 @@
     {
       "name": "Data truth and workflow safety",
       "weight": 8,
-      "score": 50,
-      "weighted_points": 4.0,
-      "evidence": [],
+      "score": 85,
+      "weighted_points": 6.8,
+      "evidence": [
+        "database surface present",
+        "structured db boundary manifest present",
+        "db boundary routes roots, migrations, and constraints",
+        "migration directory present"
+      ],
       "notes": []
     },
     {
       "name": "Observability and repair evidence",
       "weight": 8,
-      "score": 65,
-      "weighted_points": 5.2,
+      "score": 81,
+      "weighted_points": 6.48,
       "evidence": [
         "ops/observability directory present",
+        "repair receipts or raw artifact language found",
         "agent-friendly exception pattern found",
+        "repair-hint and receipt convention are documented",
         "repair receipt guidance is documented"
       ],
       "notes": []
@@ -384,12 +400,12 @@
     {
       "name": "Jankurai tool adoption and CI replacement",
       "weight": 7,
-      "score": 10,
-      "weighted_points": 0.7,
+      "score": 17,
+      "weighted_points": 1.19,
       "evidence": [
         "control-plane files present",
-        "applicable=14",
-        "configured=0",
+        "applicable=15",
+        "configured=5",
         "ci_evidence=0",
         "artifact_verified=0"
       ],
@@ -415,12 +431,14 @@
     {
       "name": "Build speed signals",
       "weight": 4,
-      "score": 60,
-      "weighted_points": 2.4,
+      "score": 80,
+      "weighted_points": 3.2,
       "evidence": [
         "build acceleration markers found",
         "targeted test/build commands found",
-        "locked dependency graph present"
+        "locked dependency graph present",
+        "CI cache hint found",
+        "explicit cache marker plus narrow per-package target found"
       ],
       "notes": []
     }
@@ -432,9 +450,13 @@
     "evidence": {
       "accessibility": [],
       "api_mocks": [],
-      "artifact_backed_proof": [],
+      "artifact_backed_proof": [
+        "agent/ux-qa.toml"
+      ],
       "design_tokens": [],
-      "geometry_runtime": [],
+      "geometry_runtime": [
+        "agent/ux-qa.toml"
+      ],
       "layout_stability": [],
       "playwright_visual": [],
       "storybook": [],
@@ -443,8 +465,8 @@
   },
   "tool_adoption": {
     "control_plane_present": true,
-    "applicable_count": 14,
-    "configured_count": 0,
+    "applicable_count": 15,
+    "configured_count": 5,
     "ci_evidence_count": 0,
     "artifact_verified_count": 0,
     "replaced_count": 0,
@@ -454,16 +476,16 @@
         "category": "audit",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual repo scoring",
           "ad hoc score gates"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
@@ -478,16 +500,16 @@
         "category": "proof",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "ad hoc proof lane selection",
           "manual proof receipts"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai proof . --changed-from origin/main --out target/jankurai/proof-plan.json --md target/jankurai/proof-plan.md",
@@ -575,17 +597,17 @@
         "category": "security",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "gitleaks",
           "dependency review",
           "SBOM/provenance"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai security run . --out target/jankurai/security/evidence.json",
@@ -711,16 +733,16 @@
         "category": "contract",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "handwritten contract drift checks",
           "openapi diff"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
@@ -735,15 +757,15 @@
         "category": "rust",
         "mode": "auto",
         "applicable": true,
-        "status": "missing",
+        "status": "configured",
         "replaced_tools": [
           "manual witness graphing"
         ],
         "evidence": [
-          "mode=auto"
+          "mode=auto",
+          "tool-adoption config entry present"
         ],
         "missing": [
-          "agent/tool-adoption.toml entry",
           "CI command evidence"
         ],
         "local_command": "jankurai rust witness build .",
@@ -886,15 +908,18 @@
         "id": "cost-budget",
         "category": "release",
         "mode": "auto",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "missing",
         "replaced_tools": [
           "manual spend review"
         ],
         "evidence": [
           "mode=auto"
         ],
-        "missing": [],
+        "missing": [
+          "agent/tool-adoption.toml entry",
+          "CI command evidence"
+        ],
         "local_command": "jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md",
         "ci_command": "jankurai audit . --mode ratchet --baseline target/jankurai/accepted-baseline.json --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
         "artifact_paths": [
@@ -904,7 +929,7 @@
       }
     ],
     "evidence": {
-      "applicable_count": 14,
+      "applicable_count": 15,
       "applicable_tools": [
         "audit-ci",
         "proof-routing",
@@ -919,15 +944,22 @@
         "rust-witness",
         "authz-matrix",
         "agent-tool-supply",
-        "release-readiness"
+        "release-readiness",
+        "cost-budget"
       ],
       "artifact_verified_count": 0,
       "artifact_verified_tools": [],
       "ci_evidence_count": 0,
       "ci_evidence_tools": [],
-      "config_present": false,
-      "configured_count": 0,
-      "configured_tools": [],
+      "config_present": true,
+      "configured_count": 5,
+      "configured_tools": [
+        "audit-ci",
+        "proof-routing",
+        "security",
+        "contract-drift",
+        "rust-witness"
+      ],
       "control_plane_present": true
     },
     "missing": [
@@ -944,7 +976,8 @@
       "rust-witness",
       "authz-matrix",
       "agent-tool-supply",
-      "release-readiness"
+      "release-readiness",
+      "cost-budget"
     ]
   },
   "security_evidence": {},
@@ -954,7 +987,7 @@
   "copy_code": {
     "schema_version": "1.1.0",
     "generated_by": "jankurai copy-code",
-    "generated_at": "2026-06-11T01:17:39.848135756+00:00",
+    "generated_at": "2026-06-11T22:13:18.197964325+00:00",
     "repo": ".",
     "auditor_version": "1.6.10",
     "status": "review",
@@ -992,7 +1025,7 @@
       ]
     },
     "summary": {
-      "files_scanned": 41,
+      "files_scanned": 58,
       "files_considered": 2,
       "active_files": 2,
       "exact_file_classes": 0,
@@ -1058,8 +1091,8 @@
     ]
   },
   "profile_structure": {
-    "applicable_count": 2,
-    "canonical_count": 2,
+    "applicable_count": 4,
+    "canonical_count": 4,
     "noncanonical_count": 0,
     "guidance_missing_count": 0,
     "cells": [
@@ -1164,36 +1197,40 @@
       },
       {
         "id": "contracts",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "canonical",
         "canonical_path": "contracts/",
-        "detected_paths": [],
+        "detected_paths": [
+          "contracts"
+        ],
         "aliases": [
           "openapi/",
           "protobuf/",
           "json-schema/",
           "generated/"
         ],
-        "guidance_status": "not_required",
+        "guidance_status": "present",
         "owner": "contracts",
         "proof_lane": "generation / drift checks",
-        "agent_fix": "no action"
+        "agent_fix": "keep `contracts/AGENTS.md` aligned with owns / forbidden / proof lane guidance"
       },
       {
         "id": "db",
-        "applicable": false,
-        "status": "not_applicable",
+        "applicable": true,
+        "status": "canonical",
         "canonical_path": "db/",
-        "detected_paths": [],
+        "detected_paths": [
+          "db"
+        ],
         "aliases": [
           "migrations/",
           "constraints/",
           "sql/"
         ],
-        "guidance_status": "not_required",
+        "guidance_status": "present",
         "owner": "db",
         "proof_lane": "migration / constraint tests",
-        "agent_fix": "no action"
+        "agent_fix": "keep `db/AGENTS.md` aligned with owns / forbidden / proof lane guidance"
       },
       {
         "id": "python-ai",
@@ -1238,8 +1275,8 @@
       }
     ],
     "evidence": {
-      "applicable_count": 2,
-      "canonical_count": 2,
+      "applicable_count": 4,
+      "canonical_count": 4,
       "detected_cells": [
         {
           "canonical_path": "crates/domain/",
@@ -1248,6 +1285,24 @@
           ],
           "guidance_status": "present",
           "id": "domain",
+          "status": "canonical"
+        },
+        {
+          "canonical_path": "contracts/",
+          "detected_paths": [
+            "contracts"
+          ],
+          "guidance_status": "present",
+          "id": "contracts",
+          "status": "canonical"
+        },
+        {
+          "canonical_path": "db/",
+          "detected_paths": [
+            "db"
+          ],
+          "guidance_status": "present",
+          "id": "db",
           "status": "canonical"
         },
         {
@@ -1295,19 +1350,20 @@
       "severity": "medium",
       "category": "proof",
       "path": "Justfile",
-      "problem": "`Build speed signals` scored 60 below the standard floor of 85",
+      "problem": "`Build speed signals` scored 80 below the standard floor of 85",
       "agent_fix": "add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration",
       "evidence": [
         "build acceleration markers found",
         "targeted test/build commands found",
-        "locked dependency graph present"
+        "locked dependency graph present",
+        "CI cache hint found"
       ],
       "check_id": "HLT-018-PERF-CONCURRENCY-DRIFT:proof",
       "hardness": "soft",
       "confidence": 0.76,
       "evidence_kind": "repository-scan",
       "rerun_command": "just fast",
-      "fingerprint": "sha256:49dd87b3bb47929ee7676db7afb108c2861b56edf9a1ebe40d26535a1b8717f8",
+      "fingerprint": "sha256:2f2531223d7f7036c20d44b58cd52e64aa53ffd6cb85e01e541c1feff0c09cb2",
       "rule_id": "HLT-018-PERF-CONCURRENCY-DRIFT",
       "tlr": "Verification",
       "lane": "fast",
@@ -1316,66 +1372,22 @@
     },
     {
       "severity": "medium",
-      "category": "boundary",
-      "path": "agent/boundaries.toml",
-      "problem": "`Contract and boundary integrity` scored 78 below the standard floor of 85",
-      "agent_fix": "add generated contracts and boundary checks for public APIs, data access, and cross-runtime seams",
-      "evidence": [
-        "generated contract artifacts found",
-        "polyglot boundary layout present",
-        "boundary manifest present",
-        "Rust typed boundary helpers found"
-      ],
-      "check_id": "HLT-007-HANDWRITTEN-CONTRACT:boundary",
-      "hardness": "soft",
-      "confidence": 0.76,
-      "evidence_kind": "contract-manifest",
-      "rerun_command": "just fast",
-      "fingerprint": "sha256:5ef164d06d7c42c89df3c44afe8da6fb358d37ac47a34ba513c860b76d150e3e",
-      "rule_id": "HLT-007-HANDWRITTEN-CONTRACT",
-      "tlr": "Contracts/data",
-      "lane": "contract",
-      "docs_url": "docs/audit-rubric.md#known-vibe-coding-insults",
-      "owner": "agent"
-    },
-    {
-      "severity": "medium",
-      "category": "data",
-      "path": "db/",
-      "problem": "`Data truth and workflow safety` scored 50 below the standard floor of 85",
-      "agent_fix": "move durable truth into migrations, constraints, adapters, and application-owned transactions",
-      "evidence": [
-        "Data truth and workflow safety scored 50"
-      ],
-      "check_id": "HLT-006-DIRECT-DB-WRONG-LAYER:data",
-      "hardness": "soft",
-      "confidence": 0.76,
-      "evidence_kind": "sql",
-      "rerun_command": "just fast",
-      "fingerprint": "sha256:6dc277f838aa42b508c136f6ba666d602ecefe226bc4c238b24388640ee21f82",
-      "rule_id": "HLT-006-DIRECT-DB-WRONG-LAYER",
-      "tlr": "Contracts/data",
-      "lane": "db",
-      "docs_url": "docs/audit-rubric.md#required-shape",
-      "owner": "tools"
-    },
-    {
-      "severity": "medium",
       "category": "observability",
       "path": "docs/testing.md",
-      "problem": "`Observability and repair evidence` scored 65 below the standard floor of 85",
+      "problem": "`Observability and repair evidence` scored 81 below the standard floor of 85",
       "agent_fix": "add structured errors, telemetry, and repair receipts that tell the next agent where to rerun proof",
       "evidence": [
         "ops/observability directory present",
+        "repair receipts or raw artifact language found",
         "agent-friendly exception pattern found",
-        "repair receipt guidance is documented"
+        "repair-hint and receipt convention are documented"
       ],
       "check_id": "HLT-017-OPAQUE-OBSERVABILITY:observability",
       "hardness": "soft",
       "confidence": 0.76,
       "evidence_kind": "repository-scan",
       "rerun_command": "just score",
-      "fingerprint": "sha256:7a762341dffe92b8587097cc2b8dd6e4346f98c7881952f4465cd2c5afa21674",
+      "fingerprint": "sha256:32a557e34c3317159b29be5db73dbff23f456d7ff2cff22b9363c020f56a593c",
       "rule_id": "HLT-017-OPAQUE-OBSERVABILITY",
       "tlr": "Repair",
       "lane": "observability",
@@ -1385,26 +1397,6 @@
   ],
   "agent_fix_queue": [
     {
-      "path": "agent/boundaries.toml",
-      "priority": "medium",
-      "rule_id": "HLT-007-HANDWRITTEN-CONTRACT",
-      "tlr": "Contracts/data",
-      "lane": "contract",
-      "owner": "agent",
-      "task": "add generated contracts and boundary checks for public APIs, data access, and cross-runtime seams",
-      "why": "`Contract and boundary integrity` scored 78 below the standard floor of 85"
-    },
-    {
-      "path": "db/",
-      "priority": "medium",
-      "rule_id": "HLT-006-DIRECT-DB-WRONG-LAYER",
-      "tlr": "Contracts/data",
-      "lane": "db",
-      "owner": "tools",
-      "task": "move durable truth into migrations, constraints, adapters, and application-owned transactions",
-      "why": "`Data truth and workflow safety` scored 50 below the standard floor of 85"
-    },
-    {
       "path": "Justfile",
       "priority": "medium",
       "rule_id": "HLT-018-PERF-CONCURRENCY-DRIFT",
@@ -1412,7 +1404,7 @@
       "lane": "fast",
       "owner": "workspace",
       "task": "add fast deterministic build/test targets, caches, and narrow proof lanes for agent iteration",
-      "why": "`Build speed signals` scored 60 below the standard floor of 85"
+      "why": "`Build speed signals` scored 80 below the standard floor of 85"
     },
     {
       "path": "docs/testing.md",
@@ -1422,7 +1414,7 @@
       "lane": "observability",
       "owner": "standard",
       "task": "add structured errors, telemetry, and repair receipts that tell the next agent where to rerun proof",
-      "why": "`Observability and repair evidence` scored 65 below the standard floor of 85"
+      "why": "`Observability and repair evidence` scored 81 below the standard floor of 85"
     },
     {
       "path": ".github/workflows/jankurai.yml",

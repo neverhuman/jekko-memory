@@ -2,5 +2,6 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
-cargo fmt --all -- --check
-cargo test --locked --lib
+bash ops/ci/typecheck.sh
+bash ops/ci/build.sh
+bash ops/ci/test.sh

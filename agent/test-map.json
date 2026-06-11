@@ -40,6 +40,26 @@
       "command": "just fast",
       "purpose": "verify agent-readable docs stay routed"
     },
+    "db/": {
+      "command": "jankurai doctor --fail-on critical",
+      "purpose": "advisory database boundary health check"
+    },
+    "db/constraints/": {
+      "command": "jankurai doctor --fail-on critical",
+      "purpose": "advisory constraint-lane health check until DB proof exists"
+    },
+    "db/migrations/": {
+      "command": "jankurai doctor --fail-on critical",
+      "purpose": "advisory control-plane health check until migration tests exist"
+    },
+    "db/AGENTS.md": {
+      "command": "jankurai doctor --fail-on critical",
+      "purpose": "verify database routing guidance stays visible"
+    },
+    "db/README.md": {
+      "command": "jankurai doctor --fail-on critical",
+      "purpose": "verify database documentation stays visible"
+    },
     "docs/testing.md": {
       "command": "bash ops/ci/jankurai.sh",
       "purpose": "verify testing, repair receipt, and launch-gate evidence stays audit-clean"
@@ -67,6 +87,18 @@
     "CHANGELOG.md": {
       "command": "just fast",
       "purpose": "verify release notes stay routed"
+    },
+    "contracts/": {
+      "command": "jankurai audit . --mode advisory --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
+      "purpose": "advisory contract drift scan until project-specific contract checks exist"
+    },
+    "contracts/AGENTS.md": {
+      "command": "jankurai audit . --mode advisory --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
+      "purpose": "verify contract routing guidance stays visible"
+    },
+    "contracts/README.md": {
+      "command": "jankurai audit . --mode advisory --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md",
+      "purpose": "verify contract source guidance stays visible"
     },
     "crates/domain/": {
       "command": "just test",

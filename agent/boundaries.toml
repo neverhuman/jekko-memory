@@ -1,14 +1,30 @@
 [db]
-constraint_paths = []
-migration_paths = []
-root_paths = []
+constraint_paths = ["db/constraints"]
+migration_paths = ["db/migrations"]
+root_paths = ["db"]
 
 [python]
-allowed_truth_paths = []
+allowed_truth_paths = ["python/ai-service"]
 
 [rust]
-domain_paths = ["src", "crates/domain"]
-forbidden_domain_imports = ["std::fs", "std::env", "std::net", "std::time::SystemTime", "rand::", "sqlx::", "diesel::", "reqwest::"]
+domain_paths = [
+    "src",
+    "crates/domain",
+    "crates/*/src/domain",
+]
+forbidden_domain_imports = [
+    "std::fs",
+    "std::env",
+    "std::net",
+    "std::time::SystemTime",
+    "rand::",
+    "sqlx::",
+    "diesel::",
+    "reqwest::",
+    "rdkafka::",
+    "tracing::",
+    "log::",
+]
 
 [stack]
 id = "rust-split-family-child"
