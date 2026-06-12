@@ -1,18 +1,39 @@
 # jekko-memory
 
-[![Jankurai score](https://img.shields.io/badge/Jankurai-score-brightgreen)](agent/repo-score.md)
+Status badge marker: jankurai-badge.
 
-Read [AGENTS.md](AGENTS.md) first.
+cogcore, memory-benchmark, qbank-builder split out of the Jekko portal as an independently buildable Rust repository.
 
-`jekko-memory` is the data split-family repository in the Jekko baseline.
-
-- Target stack: Rust split-family child repo with local CI, audit, and
-  Jankurai metadata.
-- Score artifacts: `agent/repo-score.json` and `agent/repo-score.md`.
-- Remotes: wired to the canonical Jeryu and GitHub URLs.
+This repository is a standalone split-family checkout. It contains repo-local workspace members only; support crates copied from the portal are present under `crates/` so CI does not depend on sibling split repositories. Read [AGENTS.md](AGENTS.md) before editing.
 
 ## Quick Start
 
-1. `bash scripts/ci-doctor.sh`
-2. `just fast`
-3. `just score`
+```bash
+just fast
+just score
+just score-fast
+bash ops/ci/jankurai.sh
+bash scripts/ci-doctor.sh
+bash scripts/ci-local.sh
+```
+
+## Target Stack
+
+The target stack is Rust workspace code with shell-based CI parity and Jankurai audit artifacts.
+
+## Primary Owned Surfaces
+
+- cogcore
+- memory-benchmark
+- qbank-builder
+
+## Workspace Members
+
+- `crates/agent-search`
+- `crates/cogcore`
+- `examples/memory-benchmark`
+- `crates/qbank-builder`
+
+## Jankurai Score Flow
+
+Jankurai writes `.jankurai/repo-score.{json,md}` first, then mirrors the same score files into `target/jankurai/` and tracked `agent/repo-score.{json,md}`. Score history remains in `.jankurai/` and is mirrored into `target/jankurai/`.

@@ -1,24 +1,21 @@
+schema_version = 1
+
 [[lane]]
 name = "fast"
-command = "just fast"
-purpose = "deterministic local health proof"
-
-[[lane]]
-name = "audit"
-command = "just score"
-purpose = "write jankurai score artifacts"
-
-[[lane]]
-name = "contract-drift"
-command = "just contract-drift"
-purpose = "boundary manifest schema, generated-contract routing, and public API drift hooks"
+command = "bash ops/ci/fast.sh"
+purpose = "deterministic Rust workspace proof"
 
 [[lane]]
 name = "security"
-command = "just security"
-purpose = "secret, dependency, and workflow proof"
+command = "bash ops/ci/security.sh"
+purpose = "secret, dependency, and policy scan"
 
 [[lane]]
-name = "release"
-command = "just check"
-purpose = "full merge gate"
+name = "audit"
+command = "bash ops/ci/jankurai.sh"
+purpose = "Jankurai score and repair artifacts"
+
+[[lane]]
+name = "local"
+command = "bash scripts/ci-local.sh"
+purpose = "same shell lanes that GitHub Actions calls"
