@@ -5,7 +5,7 @@ default: fast
 home := env_var_or_default("HOME", "")
 export PATH := home + "/.local/bin:" + home + "/.cargo/bin:" + env_var_or_default("PATH", "")
 export TURBO_CACHE_DIR := ".turbo"
-jankurai_artifact_root := env_var_or_default("JANKURAI_ARTIFACT_ROOT", "target/jankurai")
+jankurai_artifact_root := env_var_or_default("JANKURAI_ARTIFACT_ROOT", ".jankurai")
 export RUSTC_WRAPPER := "sccache"
 export CARGO_INCREMENTAL := "0"
 
@@ -84,12 +84,12 @@ check-dev: typecheck-fast
 validate: fast
 
 score:
-	mkdir -p target/jankurai
-	jankurai audit . --mode advisory --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md --score-history target/jankurai/score-history.jsonl --score-history-csv target/jankurai/score-history.csv
+	mkdir -p .jankurai
+	jankurai audit . --mode advisory --json .jankurai/repo-score.json --md .jankurai/repo-score.md --score-history .jankurai/score-history.jsonl --score-history-csv .jankurai/score-history.csv
 
 score-fast:
-	mkdir -p target/jankurai
-	jankurai audit . --mode advisory --full --no-score-history --json target/jankurai/repo-score.json --md target/jankurai/repo-score.md
+	mkdir -p .jankurai
+	jankurai audit . --mode advisory --full --json .jankurai/repo-score.json --md .jankurai/repo-score.md --score-history .jankurai/score-history.jsonl --score-history-csv .jankurai/score-history.csv
 
 performance-score-signature:
 	: jankurai rust witness build .

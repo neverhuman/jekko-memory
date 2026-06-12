@@ -11,7 +11,7 @@ mirror_required = false
 mirror_max_rows = 5000
 
 [scan]
-excluded_paths = ["tips/"]
+excluded_paths = ["tips/", ".jankurai/"]
 
 [smart_scan]
 # After a clean full scan, only scan git-status changed files by default.

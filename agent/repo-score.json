@@ -1,7 +1,7 @@
 {
-  "report_fingerprint": "sha256:c36e6f0d0b43e23b973c685d570a64ed218982445a324daa57ad9afdbd317651",
-  "input_fingerprint": "sha256:3a39f5a4d1889e4cd307597be8ae1e46bc6f1e75de07679ef112f795d3e2645c",
-  "policy_fingerprint": "sha256:93b49ac0ba1aa78be3f9054b8f3c2e8c12e4a9ce4fd495fa425ae92f1b1a30d9",
+  "report_fingerprint": "sha256:f6fe13b458d20e3566add6514a1f5521de4bb8aba945e30af60f1e4eb1c426fb",
+  "input_fingerprint": "sha256:e758993fca03fe3745320c718fea378e4928f82f5f9eafe7c45d50f5a5a2d0ff",
+  "policy_fingerprint": "sha256:d3d4e9216bf89c824b97191fc7df61ec421867dd5fd0d7a6c3fb33527d0b403a",
   "manifest_fingerprints": {
     "owner_map": "sha256:a4d1367748de3a38ca390566eb1acb1623e6302c4ea7a017a90e3e42344f7a6e",
     "test_map": "sha256:cfafc399780a6e31f7e19bafc5192751ff2acabc1161e93672705b97405c23d2",
@@ -11,7 +11,7 @@
     "standard_version": "sha256:27e5d92b64d86aacffcf8461e47e810188bca4716aaa6a2d1f74140d65ad220e"
   },
   "dirty_worktree": true,
-  "generated_at": "1781215998",
+  "generated_at": "1781223448",
   "schema_url": "schemas/repo-score.schema.json",
   "standard": "jankurai",
   "standard_version": "0.9.0",
@@ -25,9 +25,9 @@
   "conformance_decision": "pass",
   "conformance_blockers": [],
   "repo": ".",
-  "run_id": "1781215998",
-  "started_at": "1781215998",
-  "elapsed_ms": 58,
+  "run_id": "1781223448",
+  "started_at": "1781223448",
+  "elapsed_ms": 195,
   "scope": {
     "mode": "full",
     "paths": []
@@ -54,7 +54,7 @@
     }
   },
   "git": {
-    "head": "e623df2",
+    "head": "1e3e100",
     "base": null,
     "changed_files": 0,
     "mode": "full",
@@ -448,7 +448,10 @@
     "has_rendered_ux_lane": true,
     "missing_categories": [],
     "evidence": {
-      "accessibility": [],
+      "accessibility": [
+        "agent/repo-score.json",
+        "agent/repo-score.md"
+      ],
       "api_mocks": [],
       "artifact_backed_proof": [
         "agent/ux-qa.toml"
@@ -459,7 +462,9 @@
       ],
       "layout_stability": [],
       "playwright_visual": [],
-      "storybook": [],
+      "storybook": [
+        "agent/repo-score.json"
+      ],
       "visual_review": []
     }
   },
@@ -987,7 +992,7 @@
   "copy_code": {
     "schema_version": "1.1.0",
     "generated_by": "jankurai copy-code",
-    "generated_at": "2026-06-11T22:13:18.197964325+00:00",
+    "generated_at": "2026-06-12T00:17:28.808701192+00:00",
     "repo": ".",
     "auditor_version": "1.6.10",
     "status": "review",
